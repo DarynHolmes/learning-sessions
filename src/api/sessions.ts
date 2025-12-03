@@ -25,7 +25,13 @@ function compareSessions(sessionA: Session, sessionB: Session) {
   return sessionA.popularity - sessionB.popularity
 }
 
-function getSessions({ searchText, sortOrder, simulateError }: GetSessionsOptions): Session[] {
+function filterSessions(sessions: Session[], searchText: string) {
+  return sessions.filter((session) =>
+    session.title.toLowerCase().includes(searchText.toLowerCase()),
+  )
+}
+
+function getSessions({ searchText, sortOrder }: GetSessionsOptions): Session[] {
   // the original data had mins as a string, this is being converted here
   // this is to transform the data to be have improved types for the web app
   const allSessions = data.map<Session>(
@@ -35,17 +41,15 @@ function getSessions({ searchText, sortOrder, simulateError }: GetSessionsOption
         mins: Number(item.mins),
       }) as Session,
   )
-  const sortedSessions = allSessions.sort((sessionA, sessionB) =>
+  const filteredSessions = searchText?.trim()
+    ? filterSessions(allSessions, searchText)
+    : allSessions
+
+  return filteredSessions.sort((sessionA, sessionB) =>
     sortOrder === 'ascending'
       ? compareSessions(sessionA, sessionB)
       : compareSessions(sessionB, sessionA),
   )
-  if (searchText?.trim()) {
-    return sortedSessions.filter((session) =>
-      session.title.toLowerCase().includes(searchText.toLowerCase()),
-    )
-  }
-  return sortedSessions
 }
 
 export function fetchSessions(options: GetSessionsOptions): Promise<Session[]> {
