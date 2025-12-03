@@ -17,11 +17,6 @@ const sortOrder = ref<SortOrder>('descending')
 // This code would not be here in a real app, only the error handling would be present
 const simulateError = ref(false)
 
-const options = computed(() => ({
-  searchText: debouncedSearchText.value,
-  sortOrder: sortOrder.value,
-}))
-
 const {
   data: sessions,
   isLoading,
