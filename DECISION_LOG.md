@@ -18,8 +18,4 @@ Standard components were used with good practices. For example the checkbox and 
 
 ## Why TanStack Query?
 
-TanStack Query (Vue Query) was used as it is an excellent tool for asynchronous state management. It has a nice API for obtaining errors, loading state and the data. It also caches data, which is why the app is fast when repeating a search term.
-
-## Why Tailwind
-
-This is a great tool for rapid prototyping. It can be used for larger projects when components are used. Tailwind can become difficult to maintain so it certainly has its tradeoffs.
+TanStack Query (Vue Query) is an excellent tool for asynchronous state management. It has a nice API for obtaining errors, loading state and the data. It caches data, which is why the app is fast when repeating a search term.
