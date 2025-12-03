@@ -35,7 +35,7 @@ const {
 <template>
   <main>
     <div class="p-10">
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center flex-col gap-6 pb-6 md:flex-row">
         <h1 class="text-2xl py-10">Sessions</h1>
         <input
           type="text"
