@@ -48,10 +48,17 @@ const {
           placeholder="Search..."
           v-model="searchText"
         />
-        <select v-model="sortOrder">
-          <option value="descending">Popularity - high to low</option>
-          <option value="ascending">Popularity - low to hight</option>
-        </select>
+        <div>
+          <label for="sort-order" class="pr-4">Sort</label>
+          <select
+            id="sort-order"
+            v-model="sortOrder"
+            class="px-4 py-2 border-2 border-gray-300 rounded"
+          >
+            <option value="descending">Popularity - high to low</option>
+            <option value="ascending">Popularity - low to hight</option>
+          </select>
+        </div>
       </div>
       <div aria-live="polite">
         <div v-if="isLoading">Loading...</div>
