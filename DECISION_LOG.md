@@ -2,7 +2,7 @@
 
 ## Where do you coerce mins to a number and why there?
 
-I decided to do this in the API layer. This seemed like a good place to transform the data as it would interface with the external API. This way only the API layer knows about the details of structure of the API.
+I decided to do this in the API layer. This seemed like a good place to transform the data as it would interface with the external API. This way only the API layer knows about the details of the structure of the API.
 
 ## How did you implement the debounce and why did you choose that approach?
 
@@ -10,7 +10,7 @@ I used [refDebounced](https://vueuse.org/shared/refDebounced/) from VueUse. It i
 
 ## If two sessions share the same popularity, what guarantees their relative order?
 
-In the case of equal popularity, the code will use the title to sort it alphabetically. With the way it is implemented, these will always be sorted in descending alphabetical order regardless of the sort order.
+In the case of equal popularity, the code will use the title to sort it alphabetically. With the way it is implemented, these will always be sorted in ascending alphabetical order regardless of the sort order.
 
 ## What’s your approach to accessibility for the toggle?
 
